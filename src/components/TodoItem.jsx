@@ -6,20 +6,18 @@ function TodoItem(props){
 
     const [isDone, setIsDone] = useState(false);
 
-    function isDoneHandler(){
-        setIsDone(prevValue => {
-            return !prevValue
-        })
-        // if (isDone == false){
-        // setIsDone(true)
-        // } else{setIsDone(false)
-
-        // }   
-    }
+    function isDoneHandler() {
+        setIsDone(true);
+        setTimeout(() => {
+          props.onChecked(props.id);
+        }, 1000); 
+      }
 
     return(
     
-    <li onClick={isDoneHandler} style={isDone ? isDoneItem : null}> {props.text} </li>
+    <li onClick={() => {
+        isDoneHandler()
+    }} style={isDone ? isDoneItem : null}> {props.text} </li>
     
     )
 }

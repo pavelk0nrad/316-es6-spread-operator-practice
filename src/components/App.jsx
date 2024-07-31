@@ -16,16 +16,24 @@ function App() {
     console.log(value)
     }
 
-    function addItem() {
+  function addItem() {
       setItemList(prevValue => {
         return[
           ...prevValue,
           newItem
         ]
-
       })
       setItem("")
+  }
 
+  function deleteItem(id){
+    setItemList((prevItems)=>{
+      return prevItems.filter(
+        (item, index) =>{
+          return index !== id
+        }
+      )
+    })
   }
     
   return (
@@ -41,7 +49,12 @@ function App() {
       </div>
       <div>
         <ul>
-          {itemList.map(items =>  <TodoItem text={items}/> )}
+          {itemList.map((items, index) =>  
+            <TodoItem 
+              key={index}
+              id={index}
+              text={items}
+              onChecked={deleteItem} /> )}
         </ul>
       </div>
     </div>
