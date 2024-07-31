@@ -7,11 +7,14 @@ function TodoItem(props){
     const [isDone, setIsDone] = useState(false);
 
     function isDoneHandler(){
-        if (isDone == false){
-        setIsDone(true)
-        } else{setIsDone(false)
+        setIsDone(prevValue => {
+            return !prevValue
+        })
+        // if (isDone == false){
+        // setIsDone(true)
+        // } else{setIsDone(false)
 
-        }   
+        // }   
     }
 
     return(

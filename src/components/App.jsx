@@ -34,14 +34,14 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" onChange={changeHandler} />
+        <input type="text" onChange={changeHandler} value={newItem} />
         <button onClick={addItem}>
           <span>add</span>
         </button>
       </div>
       <div>
         <ul>
-          {itemList.map(items =>  <TodoItem /> )}
+          {itemList.map(items =>  <TodoItem text={items}/> )}
         </ul>
       </div>
     </div>
